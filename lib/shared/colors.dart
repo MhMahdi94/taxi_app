@@ -6,3 +6,4 @@ const Color borderColor = Color(0xff7F7F7F);
 const Color textColor = Color(0xff282F39);
 const Color iconColor = Color(0xff464E65);
 const Color greyColor = Color(0xffDADEE3);
+const Color overlayColor = Color(0xff707070);
