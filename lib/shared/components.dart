@@ -38,9 +38,17 @@ class AppButton extends StatelessWidget {
 
 //App Text Button
 class AppTextButton extends StatelessWidget {
-  const AppTextButton({super.key, required this.label, required this.onTap});
+  const AppTextButton({
+    super.key,
+    required this.label,
+    required this.onTap,
+    this.color = Colors.white,
+    this.fontSize = 16,
+  });
   final String? label;
   final void Function()? onTap;
+  final Color? color;
+  final double? fontSize;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -48,9 +56,42 @@ class AppTextButton extends StatelessWidget {
       child: Center(
         child: Text(
           label!,
-          style: TextStyle(fontSize: 16.sp, color: Colors.white),
+          style: TextStyle(
+            fontSize: fontSize?.sp,
+            color: color,
+          ),
         ),
       ),
+    );
+  }
+}
+
+//App Text Form
+class AppTextForm extends StatelessWidget {
+  const AppTextForm({
+    super.key,
+    required this.controller,
+    required this.label,
+    required this.validator,
+    this.obsecureText = false,
+    required this.iconData,
+  });
+
+  final TextEditingController controller;
+  final String? label;
+  final String? Function(String?)? validator;
+  final bool? obsecureText;
+  final IconData? iconData;
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      obscureText: obsecureText!,
+      decoration: InputDecoration(
+          label: Text(label!),
+          border: const OutlineInputBorder(),
+          prefixIcon: Icon(iconData)),
+      controller: controller,
+      validator: validator,
     );
   }
 }
