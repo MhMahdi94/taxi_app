@@ -6,9 +6,14 @@ import 'package:taxi_application/shared/colors.dart';
 
 //App Button
 class AppButton extends StatelessWidget {
-  const AppButton({super.key, required this.label, required this.onTap});
+  const AppButton(
+      {super.key,
+      required this.label,
+      required this.onTap,
+      this.backgroundColor = mainColor});
   final String? label;
   final void Function()? onTap;
+  final Color backgroundColor;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -17,15 +22,13 @@ class AppButton extends StatelessWidget {
         width: 320.w,
         height: 50.h,
         decoration: BoxDecoration(
-          color: mainColor,
+          color: backgroundColor,
           borderRadius: BorderRadius.circular(100.r),
         ),
         child: Center(
           child: Text(
             label!,
-            style: TextStyle(
-              fontSize: 16.sp,
-            ),
+            style: TextStyle(fontSize: 16.sp, color: Colors.white),
           ),
         ),
       ),
@@ -45,10 +48,7 @@ class AppTextButton extends StatelessWidget {
       child: Center(
         child: Text(
           label!,
-          style: TextStyle(
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w400,
-          ),
+          style: TextStyle(fontSize: 16.sp, color: Colors.white),
         ),
       ),
     );

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taxi_application/modules/auth/signup_screen.dart';
 import 'package:taxi_application/shared/colors.dart';
 import 'package:taxi_application/shared/components.dart';
+import 'package:taxi_application/shared/functions.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -16,7 +18,7 @@ class AuthPage extends StatelessWidget {
         height: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/authbg.png'),
+            image: const AssetImage('assets/images/authbg.png'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
               Colors.black.withOpacity(0.7),
@@ -28,15 +30,13 @@ class AuthPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              height: 40.h,
+              height: 50.h,
             ),
-            Image(image: AssetImage('assets/images/logo.png')),
-            Spacer(),
+            const Image(image: AssetImage('assets/images/logo.png')),
+            const Spacer(),
             AppButton(
               label: 'SIGN IN',
-              onTap: () {
-                print('SIGN IN');
-              },
+              onTap: () {},
             ),
             SizedBox(
               height: 16.h,
@@ -45,6 +45,7 @@ class AuthPage extends StatelessWidget {
               label: 'SIGN UP',
               onTap: () {
                 print('SIGN UP');
+                navigateTo(context, const SignUpScreen());
               },
             ),
             SizedBox(
