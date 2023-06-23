@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:taxi_application/modules/auth/auth_page.dart';
 import 'package:taxi_application/shared/colors.dart';
 
 import '../../shared/functions.dart';

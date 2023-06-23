@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
           );
         },
         child: SplashScreen(
-          startWidget: startWidget,
+          startWidget: AuthPage(),
         ),
       ),
     );
