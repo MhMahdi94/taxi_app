@@ -75,6 +75,7 @@ class AppTextForm extends StatelessWidget {
     required this.validator,
     this.obsecureText = false,
     required this.iconData,
+    this.textInputType = TextInputType.text,
   });
 
   final TextEditingController controller;
@@ -82,9 +83,11 @@ class AppTextForm extends StatelessWidget {
   final String? Function(String?)? validator;
   final bool? obsecureText;
   final IconData? iconData;
+  final TextInputType textInputType;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: textInputType,
       obscureText: obsecureText!,
       decoration: InputDecoration(
           label: Text(label!),
