@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:taxi_application/modules/auth/signin_screen.dart';
 import 'package:taxi_application/modules/auth/signup_screen.dart';
-import 'package:taxi_application/shared/colors.dart';
 import 'package:taxi_application/shared/components.dart';
 import 'package:taxi_application/shared/functions.dart';
 

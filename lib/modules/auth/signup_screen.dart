@@ -1,13 +1,10 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:taxi_application/modules/auth/cubit/cubit.dart';
 import 'package:taxi_application/modules/auth/cubit/states.dart';
-import 'package:taxi_application/modules/auth/otp_screen.dart';
 import 'package:taxi_application/modules/auth/signin_screen.dart';
 import 'package:taxi_application/shared/colors.dart';
 import 'package:taxi_application/shared/components.dart';

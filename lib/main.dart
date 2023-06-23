@@ -2,18 +2,29 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:taxi_application/layout/appLayout.dart';
+import 'package:taxi_application/modules/auth/auth_page.dart';
 import 'package:taxi_application/modules/auth/cubit/cubit.dart';
 import 'package:taxi_application/modules/splash/splash_screen.dart';
 import 'package:taxi_application/shared/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
+late Widget startWidget;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+  FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    if (user == null) {
+      print('User is currently signed out!');
+      startWidget = AuthPage();
+    } else {
+      print('User is signed in!');
+      startWidget = AppLayout();
+    }
+  });
   runApp(const MyApp());
 }
 
@@ -42,7 +53,9 @@ class MyApp extends StatelessWidget {
             home: child,
           );
         },
-        child: const SplashScreen(),
+        child: SplashScreen(
+          startWidget: startWidget,
+        ),
       ),
     );
   }

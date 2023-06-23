@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:taxi_application/layout/appLayout.dart';
 import 'package:taxi_application/modules/auth/auth_page.dart';
 import 'package:taxi_application/shared/colors.dart';
 
 import '../../shared/functions.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
-
+  const SplashScreen({super.key, required this.startWidget});
+  final Widget startWidget;
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
@@ -22,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen>
     // TODO: implement initState
     super.initState();
     Future.delayed(Duration(seconds: 3)).then(
-      (value) => navigateToWithReplacement(context, AuthPage()),
+      (value) => navigateToWithReplacement(context, widget.startWidget),
     );
   }
 

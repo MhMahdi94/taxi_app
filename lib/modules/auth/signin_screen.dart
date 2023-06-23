@@ -1,10 +1,10 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:taxi_application/layout/appLayout.dart';
 import 'package:taxi_application/modules/auth/cubit/cubit.dart';
 import 'package:taxi_application/modules/auth/cubit/states.dart';
 import 'package:taxi_application/shared/colors.dart';
@@ -61,7 +61,7 @@ class SignInScreen extends StatelessWidget {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(snackBar);
-          // navigateTo(context, const SignInScreen());
+          navigateToWithReplacement(context, const AppLayout());
         }
       },
       builder: (context, state) {
@@ -91,7 +91,19 @@ class SignInScreen extends StatelessWidget {
                   AppTextForm(
                     controller: emailController,
                     label: 'Email',
-                    validator: (value) {},
+                    validator: (value) {
+                      if (value.toString().isEmpty) {
+                        return 'Email is Required Field';
+                      }
+                      bool emailValid = RegExp(
+                              r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                          .hasMatch(value!);
+                      print(emailValid);
+                      if (!emailValid) {
+                        return 'Email is invalid';
+                      }
+                      return null;
+                    },
                     iconData: Icons.email_outlined,
                   ),
                   SizedBox(
@@ -100,7 +112,12 @@ class SignInScreen extends StatelessWidget {
                   AppTextForm(
                     controller: pwdController,
                     label: 'Password',
-                    validator: (value) {},
+                    validator: (value) {
+                      if (value.toString().isEmpty) {
+                        return 'Password is Required Field';
+                      }
+                      return null;
+                    },
                     obsecureText: true,
                     iconData: Icons.password,
                   ),
@@ -141,7 +158,9 @@ class SignInScreen extends StatelessWidget {
                       : AppTextButton(
                           label: 'FORGOT PASSWORD',
                           color: mainColor,
-                          onTap: () {},
+                          onTap: () {
+                            authCubit.resetPassword(context);
+                          },
                           fontSize: 12.sp,
                         ),
                 ],
