@@ -62,7 +62,7 @@ class SignUpScreen extends StatelessWidget {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(snackBar);
-          navigateTo(context, SignInScreen());
+          navigateTo(context, const SignInScreen());
         }
       },
       builder: (context, state) {

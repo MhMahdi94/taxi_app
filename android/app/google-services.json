@@ -29,6 +29,13 @@
             {
               "client_id": "771059755421-9eg27jt4ppvrpc74igbn58f1kt09oa4d.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "771059755421-1kkr61cscn66nvukvs98p4b9rpvstal1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.taxiApplication"
+              }
             }
           ]
         }
